@@ -13,44 +13,43 @@ export const metadata: Metadata = {
 const services = [
   {
     icon: Droplets,
-    title: "Dock & Lift Pressure Washing",
+    title: "Pressure Washing",
     description:
-      "Years of algae, grime, and buildup don't stand a chance. Our high-powered pressure wash restores your dock surface to like-new condition — safely and thoroughly. We handle composite, wood, and aluminum docks.",
-    detail: "Most jobs completed in 2–4 hours.",
+      "Arrive to a spotless dock. We handle the algae, grime, and buildup so you don\u2019t have to think about it. Composite, wood, and aluminum docks all done thoroughly and safely.",
+    detail: "Most jobs completed in 2\u20134 hours.",
   },
   {
     icon: Trash2,
-    title: "Shoreline & Beach Cleanup",
+    title: "Shoreline Cleanup",
     description:
-      "Driftwood, debris, geese mess, dead vegetation — we clear it all. We work your full shoreline efficiently without damaging your landscaping or lawn.",
+      "A clean shoreline you\u2019re proud of. Driftwood, debris, and buildup cleared without touching your landscaping or lawn. Your property always looks its best.",
     detail: "Available as a standalone service or add-on.",
   },
   {
     icon: Hammer,
-    title: "Dock Maintenance",
+    title: "Waterfront Repairs",
     description:
-      "Sanding, sealing, staining, and general upkeep to keep your dock in great shape season after season. We assess what actually needs doing and give you honest recommendations.",
-    detail: "We use premium marine-grade sealants and stains.",
+      "A safe dock for your family. We check for loose boards, popped nails, and worn hardware before someone gets hurt \u2014 and replace rotted or damaged boards before they become a real problem.",
+    detail: "Honest assessment, no unnecessary upselling.",
   },
   {
     icon: Zap,
-    title: "Dock Ladder & Solar Light Installation",
+    title: "Solar Light Installation",
     description:
-      "Safe, properly anchored ladder installation and clean solar light placement. We make sure everything is secure, level, and built to last through Okanagan winters.",
-    detail: "No electrician required — all solar.",
+      "Light up your evenings. Solar dock lights installed so your waterfront looks great day and night. Everything anchored securely and built to handle Okanagan winters.",
+    detail: "No electrician required \u2014 all solar.",
   },
   {
     icon: Sofa,
-    title: "Waterfront Furniture Setup",
-    description:
-      "We bring your dock and waterfront furniture out of storage, place it to your spec, and leave everything ready for the season. Start summer right.",
+    title: "Waterfront Sanding & Sealing",
+    description: "We sand your dock down to bare wood — removing slivers, rough patches, and years of wear — then seal it with premium marine-grade products so it\u2019s smooth, protected, and ready for bare feet all summer.",
     detail: "Spring setup and fall takedown available.",
   },
   {
     icon: Package,
-    title: "Barge Material Delivery",
+    title: "Material Delivery",
     description:
-      "Need lumber, stone, landscaping material, or equipment delivered to your lakefront property where no truck can reach? We load it on the barge and bring it directly to you.",
+      "Need supplies at your waterfront? Lumber, stone, landscaping material, equipment \u2014 we bring everything directly to you. No hauling required.",
     detail: "Contact us for delivery capacity and pricing.",
   },
 ];
@@ -66,12 +65,12 @@ export default function ServicesPage() {
           </FadeUp>
           <FadeUp delay={0.1}>
             <h1 className="font-heading text-[clamp(56px,8vw,96px)] text-[#F5F3EE] leading-tight max-w-3xl">
-              LAKEFRONT SERVICES, DONE RIGHT
+              EVERYTHING YOUR DOCK NEEDS
             </h1>
           </FadeUp>
           <FadeUp delay={0.2}>
             <p className="text-[#F5F3EE]/60 text-lg mt-6 max-w-xl leading-relaxed">
-              We get to your waterfront however it takes — and leave it clean, safe, and ready.
+              We take care of the upkeep so every time you arrive, your waterfront is clean, safe, and ready to enjoy.
             </p>
           </FadeUp>
         </div>

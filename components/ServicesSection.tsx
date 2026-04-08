@@ -8,39 +8,39 @@ import { motion } from "framer-motion";
 const services = [
   {
     icon: Droplets,
-    title: "Dock & Lift Pressure Washing",
+    title: "Pressure Washing",
     description:
-      "High-powered wash to blast away algae, grime, geese mess, and years of buildup — leaving your dock safe, clean, and ready for the family.",
+      "Arrive to a spotless dock. We handle the algae, grime, and buildup so you don\u2019t have to think about it.",
   },
   {
     icon: Trash2,
-    title: "Shoreline & Beach Cleanup",
+    title: "Shoreline Cleanup",
     description:
-      "Driftwood removal, debris clearing, and shoreline restoration. We leave your waterfront pristine.",
+      "A clean shoreline you\u2019re proud of. Driftwood, debris, and buildup cleared so your property always looks its best.",
   },
   {
     icon: Hammer,
-    title: "Dock Maintenance",
+    title: "Waterfront Repairs",
     description:
-      "Sanding, sealing, staining, and general upkeep to keep your dock in great shape season after season.",
+      "A safe dock for your family. We check for loose boards, popped nails, and worn hardware before someone gets hurt.",
   },
   {
     icon: Zap,
-    title: "Dock Ladder & Solar Light Installation",
+    title: "Solar Light Installation",
     description:
-      "Safe, clean installations for dock ladders and solar lighting — no electrician required.",
+      "Light up your evenings. Solar dock lights installed so your waterfront looks great day and night.",
   },
   {
     icon: Sofa,
-    title: "Waterfront Furniture Setup",
+    title: "Sanding & Sealing",
     description:
-      "Heading up for the season or want everything ready before you arrive? We set up your dock and waterfront furniture so it&rsquo;s good to go from day one.",
+      "We sand your dock down to bare wood — removing slivers, rough patches, and years of wear — then seal it so it\u2019s smooth, protected, and ready for bare feet.",
   },
   {
     icon: Package,
-    title: "Barge Material Delivery",
+    title: "Material Delivery",
     description:
-      "Need materials delivered directly to your lakefront property? We bring it by barge, no land access required.",
+      "Need supplies at your waterfront? We bring everything directly to you \u2014 no hauling required.",
   },
 ];
 
@@ -55,7 +55,7 @@ export default function ServicesSection() {
             </FadeUp>
             <FadeUp delay={0.1}>
               <h2 className="font-heading text-[clamp(48px,6vw,72px)] text-[#0D0D0D] leading-tight">
-                LAKEFRONT SERVICES<br />FROM THE WATER
+                OUR SERVICES
               </h2>
             </FadeUp>
           </div>

@@ -1,7 +1,8 @@
 "use client";
 
+import { useRef } from "react";
 import { FadeUp, StaggerChildren, fadeUpItem } from "@/components/FadeUp";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { CalendarCheck, Anchor, CheckCircle2 } from "lucide-react";
 
 const steps = [
@@ -22,11 +23,28 @@ const steps = [
   {
     icon: CheckCircle2,
     number: "03",
-    title: "Job Done, Dock Ready",
+    title: "Job Done, Waterfront Ready",
     description:
       "We complete the work, clean up every last bit of mess, and leave your dock safe and spotless — ready for the grandkids, the summer, or whenever you show up next.",
   },
 ];
+
+function ConnectingLine() {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-80px" });
+
+  return (
+    <div ref={ref} className="hidden md:block absolute top-[22px] left-[calc(16.67%+28px)] right-[calc(16.67%+28px)] h-px overflow-hidden">
+      <div className="w-full h-px bg-[#0D0D0D]/10" />
+      <motion.div
+        className="absolute inset-0 h-px bg-[#FFCE00] origin-left"
+        initial={{ scaleX: 0 }}
+        animate={inView ? { scaleX: 1 } : { scaleX: 0 }}
+        transition={{ duration: 1.2, delay: 0.4, ease: "easeInOut" }}
+      />
+    </div>
+  );
+}
 
 export default function HowItWorks() {
   return (
@@ -34,7 +52,7 @@ export default function HowItWorks() {
       <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
         <div className="text-center mb-16">
           <FadeUp>
-            <p className="label-text text-[#FFCE00] mb-3">The Process</p>
+            <p className="label-text text-[#888888] mb-3">The Process</p>
           </FadeUp>
           <FadeUp delay={0.1}>
             <h2 className="font-heading text-[clamp(48px,6vw,72px)] text-[#0D0D0D]">
@@ -43,32 +61,38 @@ export default function HowItWorks() {
           </FadeUp>
         </div>
 
-        <StaggerChildren
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12"
-          staggerDelay={0.12}
-        >
-          {steps.map((step) => (
-            <motion.div
-              key={step.number}
-              variants={fadeUpItem}
-              className="relative flex flex-col gap-5"
-            >
-              {/* Number + icon */}
-              <div className="flex items-center gap-4">
-                <span className="font-heading text-[64px] text-[#0D0D0D]/10 leading-none select-none">
-                  {step.number}
-                </span>
-                <div className="w-12 h-12 rounded-lg bg-[#0D0D0D] flex items-center justify-center shrink-0">
-                  <step.icon size={20} className="text-[#FFCE00]" strokeWidth={1.5} />
+        <div className="relative">
+          <ConnectingLine />
+          <StaggerChildren
+            className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12"
+            staggerDelay={0.18}
+          >
+            {steps.map((step) => (
+              <motion.div
+                key={step.number}
+                variants={fadeUpItem}
+                className="relative flex flex-col gap-5"
+              >
+                {/* Number + icon */}
+                <div className="flex items-center gap-4">
+                  <span className="font-heading text-[64px] text-[#0D0D0D]/10 leading-none select-none">
+                    {step.number}
+                  </span>
+                  <motion.div
+                    className="w-12 h-12 rounded-lg bg-[#0D0D0D] flex items-center justify-center shrink-0"
+                    whileHover={{ rotate: [0, -8, 8, 0], transition: { duration: 0.4 } }}
+                  >
+                    <step.icon size={20} className="text-[#FFCE00]" strokeWidth={1.5} />
+                  </motion.div>
                 </div>
-              </div>
-              <div>
-                <h3 className="font-semibold text-[#0D0D0D] text-xl mb-3">{step.title}</h3>
-                <p className="text-[#888888] leading-relaxed">{step.description}</p>
-              </div>
-            </motion.div>
-          ))}
-        </StaggerChildren>
+                <div>
+                  <h3 className="font-semibold text-[#0D0D0D] text-xl mb-3">{step.title}</h3>
+                  <p className="text-[#888888] leading-relaxed">{step.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </StaggerChildren>
+        </div>
       </div>
     </section>
   );

@@ -10,18 +10,19 @@ export default function ProblemSolution() {
           {/* Left */}
           <div>
             <FadeUp>
-              <p className="label-text text-[#FFCE00] mb-4">The Problem</p>
+              <p className="label-text text-[#FFCE00] mb-4">Who We Are</p>
             </FadeUp>
             <FadeUp delay={0.1}>
               <h2 className="font-heading text-[clamp(48px,6vw,72px)] text-[#F5F3EE] leading-tight mb-6">
-                MOST COMPANIES CAN&rsquo;T REACH YOUR DOCK
+                BUILT FOR OKANAGAN LAKEFRONT OWNERS
               </h2>
             </FadeUp>
             <FadeUp delay={0.2}>
               <p className="text-[#F5F3EE]/70 text-lg leading-relaxed">
-                Overgrown banks, no road access, steep terrain — most service crews
-                simply can&rsquo;t get to lakefront docks. So they don&rsquo;t. Your dock goes
-                unmaintained, repairs get skipped, and small problems become expensive ones.
+                Barge Bros was built for Okanagan property owners who want to
+                spend their time on the water &mdash; not maintaining it. We take care of
+                your dock, shoreline, and waterfront on whatever schedule fits your life,
+                so showing up always feels like a holiday, not a chore.
               </p>
             </FadeUp>
           </div>
@@ -29,26 +30,26 @@ export default function ProblemSolution() {
           {/* Right */}
           <div>
             <FadeUp delay={0.15}>
-              <p className="label-text text-[#FFCE00] mb-4">The Solution</p>
+              <p className="label-text text-[#FFCE00] mb-4">The Idea</p>
             </FadeUp>
             <FadeUp delay={0.25}>
               <h2 className="font-heading text-[clamp(48px,6vw,72px)] text-[#FFCE00] leading-tight mb-6">
-                WE CAN.
+                ENJOY THE LAKE.
               </h2>
             </FadeUp>
             <FadeUp delay={0.35}>
               <p className="text-[#F5F3EE]/70 text-lg leading-relaxed">
-                We arrive directly at your dock from the water — no land access needed,
-                no excuses. Whether you need us while you&rsquo;re away for the season or
-                want the dock spotless before the grandkids arrive, we&rsquo;ve got it handled.
+                You didn&rsquo;t buy lakefront to spend your weekends scrubbing, fixing,
+                and hauling. We take that off your plate entirely &mdash; so when you
+                get there, you can actually be there.
               </p>
             </FadeUp>
             <FadeUp delay={0.45}>
               <div className="mt-8 pl-6 border-l-2 border-[#FFCE00]">
                 <p className="text-[#F5F3EE] text-xl font-semibold italic">
-                  &ldquo;If other companies can&rsquo;t reach it — we can.&rdquo;
+                  &ldquo;Your lakefront should be something you enjoy, not something you worry about.&rdquo;
                 </p>
-                <p className="text-[#888888] mt-2 label-text">Ruah & Jace, Barge Bros</p>
+                <p className="text-[#888888] mt-2 label-text">Ruah &amp; Jace, Barge Bros</p>
               </div>
             </FadeUp>
           </div>

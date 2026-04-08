@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const serviceOptions = [
   "Dock & Lift Pressure Washing",
@@ -14,6 +15,15 @@ const serviceOptions = [
 
 export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [toast, setToast] = useState<"success" | "error" | null>(null);
+  const [errorMsg, setErrorMsg] = useState<string>("Something went wrong. Please try again.");
+  const [loadedAt] = useState<number>(() => Date.now());
+
+  useEffect(() => {
+    if (!toast) return;
+    const t = setTimeout(() => setToast(null), 5000);
+    return () => clearTimeout(t);
+  }, [toast]);
 
   async function handleSubmit(e: React.SyntheticEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -32,22 +42,75 @@ export default function ContactForm() {
           phone: data.get("phone"),
           service: data.get("service"),
           message: data.get("message"),
+          website: data.get("website"), // honeypot
+          _t: loadedAt,                 // timing token
         }),
       });
 
       if (res.ok) {
         setStatus("success");
+        setToast("success");
         form.reset();
       } else {
+        const json = await res.json().catch(() => ({}));
+        setErrorMsg(json.error ?? "Something went wrong. Please try again.");
         setStatus("error");
+        setToast("error");
       }
     } catch {
+      setErrorMsg("Something went wrong. Please try again.");
       setStatus("error");
+      setToast("error");
     }
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+    <>
+      <AnimatePresence>
+        {toast && (
+          <motion.div
+            key={toast}
+            initial={{ y: "-100%" }}
+            animate={{ y: 0 }}
+            exit={{ y: "-100%" }}
+            transition={{ type: "spring", stiffness: 260, damping: 30 }}
+            className={`fixed inset-x-0 top-0 z-50 flex flex-col items-center justify-center gap-6 h-screen ${
+              toast === "success"
+                ? "bg-[#FFCE00] text-[#0D0D0D]"
+                : "bg-red-600 text-white"
+            }`}
+          >
+            {toast === "success" ? (
+              <>
+                <svg className="w-16 h-16" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                <p className="text-4xl font-bold tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.05em" }}>Message Sent!</p>
+                <p className="text-lg font-medium opacity-80">We&rsquo;ll be in touch within 24 hours.</p>
+              </>
+            ) : (
+              <>
+                <svg className="w-16 h-16" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                <p className="text-4xl font-bold tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.05em" }}>Something went wrong</p>
+                <p className="text-lg font-medium opacity-80">{errorMsg}</p>
+              </>
+            )}
+            <button
+              onClick={() => setToast(null)}
+              className="mt-4 px-8 py-3 rounded-full border-2 border-current font-semibold text-sm hover:opacity-70 transition"
+            >
+              Close
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+      {/* Honeypot — hidden from real users, bots will fill it */}
+      <div style={{ position: "absolute", left: "-9999px", opacity: 0, height: 0, overflow: "hidden" }} aria-hidden="true">
+        <input type="text" name="website" tabIndex={-1} autoComplete="off" />
+      </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div className="flex flex-col gap-1.5">
           <label htmlFor="name" className="label-text text-[#0D0D0D]">
@@ -129,16 +192,7 @@ export default function ContactForm() {
         {status === "sending" ? "Sending..." : "Send Message"}
       </button>
 
-      {status === "success" && (
-        <p className="text-green-700 text-sm font-medium">
-          Thanks! We&rsquo;ll be in touch within 24 hours.
-        </p>
-      )}
-      {status === "error" && (
-        <p className="text-red-600 text-sm font-medium">
-          Something went wrong. Please try calling us directly at 778-805-9888.
-        </p>
-      )}
     </form>
+    </>
   );
 }

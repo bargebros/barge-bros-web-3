@@ -7,7 +7,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import MagneticButton from "@/components/MagneticButton";
 
-const headline = ["WE COME", "TO YOU", "BY BARGE"];
+const headline = ["BARGE BROS", "LAKEFRONT DONE RIGHT"];
 
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null);
@@ -18,8 +18,8 @@ export default function Hero() {
   // Subtle scale: starts slightly zoomed in, relaxes as you scroll
   const scaleBg = useTransform(scrollYProgress, [0, 1], [1.08, 1.0]);
   // Content fades out as you scroll away
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  const contentY = useTransform(scrollYProgress, [0, 0.5], ["0%", "20%"]);
+  const contentOpacity = useTransform(scrollYProgress, [0.2, 0.7], [1, 0]);
+  const contentY = useTransform(scrollYProgress, [0.2, 0.7], ["0%", "20%"]);
 
   return (
     <section ref={ref} className="relative h-screen min-h-[680px] flex items-end overflow-hidden">
@@ -29,9 +29,6 @@ export default function Hero() {
         style={{ y: yBg, scale: scaleBg }}
         className="absolute inset-0 -top-[15%] -bottom-[15%] origin-center"
       >
-        {/* Swap this div for real photo:
-            <Image src="/images/hero.jpg" alt="Barge Bros on Okanagan Lake" fill className="object-cover" priority />
-        */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#0D0D0D] via-[#1a1a1a] to-[#0D0D0D]" />
         {/* Cinematic bottom gradient */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0D] via-[#0D0D0D]/40 to-transparent" />
@@ -51,7 +48,7 @@ export default function Hero() {
 
       {/* ── LOGO WATERMARK ── */}
       <div className="absolute right-[-8%] top-1/2 -translate-y-1/2 pointer-events-none opacity-[0.035] z-[1] select-none">
-        <Image src="/logo.png" alt="" width={560} height={560} className="w-[min(560px,65vw)]" aria-hidden />
+        <Image src="/images/Logo with no text.png" alt="" width={560} height={560} className="w-[min(560px,65vw)]" aria-hidden />
       </div>
 
       {/* ── CONTENT ── */}
@@ -85,25 +82,14 @@ export default function Hero() {
             ))}
           </div>
 
-          {/* Goose tagline */}
-          <motion.p
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.72 }}
-            className="font-heading text-[clamp(18px,2.4vw,28px)] text-[#F5F3EE]/50 mt-5 tracking-wide"
-          >
-            If the geese had a party on your dock last night &mdash; give us a call.
-          </motion.p>
-
           {/* Sub */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.88 }}
-            className="mt-4 text-[#F5F3EE]/65 text-base lg:text-lg max-w-lg leading-relaxed"
+            transition={{ duration: 0.5, delay: 0.72 }}
+            className="mt-6 text-[#F5F3EE]/65 text-base lg:text-lg max-w-xl leading-relaxed"
           >
-            Dock cleaning, repairs, and lakefront services for Okanagan homeowners.
-            We get your dock safe, clean, and ready — for the grandkids, for the season, or while you&rsquo;re away.
+            Whether you&rsquo;re away all week or gone for months, you should be able to pull up to your property and find it exactly how you left it &mdash; or better. No scrubbing, no loose boards, no surprises. Just the lake.
           </motion.p>
 
           {/* CTAs */}

@@ -1,6 +1,7 @@
 "use client";
 
 import { FadeUp } from "@/components/FadeUp";
+import { motion } from "framer-motion";
 import { Phone } from "lucide-react";
 
 export default function CallCTA() {
@@ -22,13 +23,28 @@ export default function CallCTA() {
             </FadeUp>
           </div>
           <FadeUp delay={0.15}>
-            <a
-              href="tel:7788059888"
-              className="flex items-center gap-3 bg-[#FFCE00] text-[#0D0D0D] px-10 py-5 rounded-full font-semibold text-lg hover:bg-yellow-300 hover:scale-[1.03] transition-all duration-200 shadow-xl whitespace-nowrap"
-            >
-              <Phone size={20} />
-              778-805-9888
-            </a>
+            {/* Pulsing ring wrapper */}
+            <div className="relative inline-flex items-center justify-center">
+              {/* Ring 1 */}
+              <motion.span
+                className="absolute inset-0 rounded-full bg-[#FFCE00]"
+                animate={{ scale: [1, 1.18, 1], opacity: [0.35, 0, 0.35] }}
+                transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+              />
+              {/* Ring 2 — offset phase */}
+              <motion.span
+                className="absolute inset-0 rounded-full bg-[#FFCE00]"
+                animate={{ scale: [1, 1.32, 1], opacity: [0.2, 0, 0.2] }}
+                transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
+              />
+              <a
+                href="tel:7788059888"
+                className="relative flex items-center gap-3 bg-[#FFCE00] text-[#0D0D0D] px-10 py-5 rounded-full font-semibold text-lg hover:bg-yellow-300 hover:scale-[1.03] transition-all duration-200 shadow-xl whitespace-nowrap"
+              >
+                <Phone size={20} />
+                778-805-9888
+              </a>
+            </div>
           </FadeUp>
         </div>
       </div>

@@ -24,12 +24,12 @@ export default function CtaSection() {
         </FadeUp>
         <FadeUp delay={0.1}>
           <h2 className="font-heading text-[clamp(56px,8vw,112px)] text-[#0D0D0D] leading-none mb-4">
-            LET&rsquo;S GET YOUR<br />DOCK SORTED
+            LET&rsquo;S MAKE IT<br />EASY FOR YOU
           </h2>
         </FadeUp>
         <FadeUp delay={0.2}>
           <p className="text-[#0D0D0D]/70 text-lg mb-10 max-w-lg mx-auto leading-relaxed">
-            Call us directly or fill out the contact form. We serve the Okanagan.
+            Give us a call or send a message. We&rsquo;ll figure out what your property needs and handle it from there.
           </p>
         </FadeUp>
         <FadeUp delay={0.3}>

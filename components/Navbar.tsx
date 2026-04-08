@@ -10,7 +10,6 @@ import { Menu, X, Phone } from "lucide-react";
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
-  { href: "/gallery", label: "Gallery" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -74,30 +73,16 @@ export default function Navbar() {
           }}
         >
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group shrink-0">
-            <div
-              className="rounded-xl overflow-hidden shrink-0 transition-all duration-300"
-              style={{
-                padding: scrolled ? "2px" : "3px",
-                lineHeight: 0,
-              }}
-            >
-              <Image
-                src="/logo.png"
-                alt="Barge Bros"
-                width={40}
-                height={40}
-                className="object-contain transition-all duration-300"
-                style={{ width: scrolled ? "32px" : "36px", height: scrolled ? "32px" : "36px" }}
-                priority
-              />
-            </div>
-            <span
-              className="font-heading text-[#FFCE00] tracking-widest leading-none hidden sm:block transition-all duration-300"
-              style={{ fontSize: scrolled ? "18px" : "22px" }}
-            >
-              BARGE BROS
-            </span>
+          <Link href="/" className="flex items-center shrink-0 group">
+            <Image
+              src="/logo.png"
+              alt="Barge Bros"
+              width={120}
+              height={120}
+              className="object-contain transition-all duration-300"
+              style={{ height: scrolled ? "44px" : "52px", width: "auto" }}
+              priority
+            />
           </Link>
 
           {/* Desktop nav */}
@@ -151,10 +136,8 @@ export default function Navbar() {
             transition={{ duration: 0.2 }}
             className="fixed inset-0 z-40 bg-[#0D0D0D] flex flex-col items-center justify-center gap-7 md:hidden"
           >
-            <div className="flex flex-col items-center gap-3 mb-2">
-              <div className="rounded-2xl overflow-hidden" style={{ width: 96, height: 96, lineHeight: 0 }}>
-                <Image src="/logo.png" alt="Barge Bros" width={200} height={200} className="w-full object-cover object-top" style={{ height: "134px" }} />
-              </div>
+            <div className="flex flex-col items-center gap-1 mt-12 mb-2">
+              <Image src="/images/Logo with no text.png" alt="Barge Bros" width={140} height={140} className="object-contain" style={{ height: "120px", width: "auto" }} />
               <Image src="/Logo2.png" alt="Barge Bros" width={160} height={50} className="object-contain" style={{ height: "32px", width: "auto" }} />
             </div>
             {navLinks.map((link) => (
