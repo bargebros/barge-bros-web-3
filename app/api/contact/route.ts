@@ -20,6 +20,18 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Please fill in all required fields." }, { status: 400 });
   }
 
+  const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(String(email));
+  if (!emailValid) {
+    return NextResponse.json({ error: "Please enter a valid email address." }, { status: 400 });
+  }
+
+  if (phone) {
+    const digits = String(phone).replace(/\D/g, "");
+    if (digits.length < 10) {
+      return NextResponse.json({ error: "Please enter a valid phone number (at least 10 digits)." }, { status: 400 });
+    }
+  }
+
   const transporter = nodemailer.createTransport(transportOptions);
 
   try {
