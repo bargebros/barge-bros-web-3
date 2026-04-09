@@ -34,7 +34,7 @@ export default function ProblemSolution() {
             </FadeUp>
             <FadeUp delay={0.25}>
               <h2 className="font-heading text-[clamp(48px,6vw,72px)] text-[#FFCE00] leading-tight mb-6">
-                ENJOY THE LAKE.
+                ENJOY THE LAKE
               </h2>
             </FadeUp>
             <FadeUp delay={0.35}>

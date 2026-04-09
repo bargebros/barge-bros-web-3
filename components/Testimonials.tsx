@@ -35,7 +35,7 @@ export default function Testimonials() {
           </FadeUp>
           <FadeUp delay={0.1}>
             <h2 className="font-heading text-[clamp(48px,6vw,72px)] text-[#F5F3EE]">
-              STRAIGHT FROM THE DOCK.
+              STRAIGHT FROM THE DOCK
             </h2>
           </FadeUp>
         </div>

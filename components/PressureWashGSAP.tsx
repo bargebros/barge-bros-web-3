@@ -51,7 +51,7 @@ export default function PressureWashGSAP() {
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
           <p className="label-text text-[#FFCE00] mb-3">The Barge Bros Difference</p>
           <h2 className="font-heading text-[clamp(48px,7vw,88px)] text-[#F5F3EE] leading-tight">
-            Watch the difference.
+            Watch the difference
           </h2>
         </div>
       </div>
