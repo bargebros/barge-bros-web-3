@@ -26,7 +26,7 @@ export default function GalleryPage() {
   return (
     <main>
       {/* Hero */}
-      <section className="bg-[#0D0D0D] pt-36 pb-20">
+      <section className="bg-[#0D0D0D] pt-28 pb-12 lg:pt-36 lg:pb-20">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
           <FadeUp>
             <p className="label-text text-[#FFCE00] mb-4">Our Work</p>
@@ -45,17 +45,18 @@ export default function GalleryPage() {
       </section>
 
       {/* Before / After sliders */}
-      <section className="bg-[#0D0D0D] pb-20">
+      <section className="bg-[#0D0D0D] pb-12 lg:pb-20">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
           <FadeUp>
             <p className="label-text text-[#FFCE00] mb-8">Before &amp; After</p>
           </FadeUp>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
             <FadeUp delay={0.1}>
               <BeforeAfter
                 before="/images/before-7.jpg"
                 after="/images/after-7.jpg"
                 alt="Dock restoration"
+                className="aspect-video"
               />
             </FadeUp>
             <FadeUp delay={0.2}>
@@ -63,6 +64,7 @@ export default function GalleryPage() {
                 before="/images/gallery-before-2.jpg"
                 after="/images/gallery-after-2.jpg"
                 alt="Dock restoration"
+                className="aspect-video"
               />
             </FadeUp>
           </div>
