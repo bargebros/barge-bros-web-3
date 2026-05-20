@@ -56,7 +56,7 @@ export default function ServiceCard({ icon: Icon, title, description }: ServiceC
       </motion.div>
 
       <h3 className="font-semibold text-[#0D0D0D] text-lg leading-snug">{title}</h3>
-      <p className="text-[#888888] text-sm leading-relaxed">{description}</p>
+      <p className="text-[#888888] text-base leading-relaxed">{description}</p>
     </motion.div>
   );
 }

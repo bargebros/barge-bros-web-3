@@ -1,8 +1,7 @@
 "use client";
 
-import { useRef } from "react";
 import { FadeUp, StaggerChildren, fadeUpItem } from "@/components/FadeUp";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import { CalendarCheck, Anchor, CheckCircle2 } from "lucide-react";
 
 const steps = [
@@ -29,22 +28,6 @@ const steps = [
   },
 ];
 
-function ConnectingLine() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
-
-  return (
-    <div ref={ref} className="hidden md:block absolute top-[22px] left-[calc(16.67%+28px)] right-[calc(16.67%+28px)] h-px overflow-hidden">
-      <div className="w-full h-px bg-[#0D0D0D]/10" />
-      <motion.div
-        className="absolute inset-0 h-px bg-[#FFCE00] origin-left"
-        initial={{ scaleX: 0 }}
-        animate={inView ? { scaleX: 1 } : { scaleX: 0 }}
-        transition={{ duration: 1.2, delay: 0.4, ease: "easeInOut" }}
-      />
-    </div>
-  );
-}
 
 export default function HowItWorks() {
   return (
@@ -62,7 +45,6 @@ export default function HowItWorks() {
         </div>
 
         <div className="relative">
-          <ConnectingLine />
           <StaggerChildren
             className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12"
             staggerDelay={0.18}

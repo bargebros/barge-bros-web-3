@@ -7,9 +7,10 @@ interface BeforeAfterProps {
   before: string;
   after: string;
   alt: string;
+  className?: string;
 }
 
-export default function BeforeAfter({ before, after, alt }: BeforeAfterProps) {
+export default function BeforeAfter({ before, after, alt, className = "" }: BeforeAfterProps) {
   const [position, setPosition] = useState(50);
   const containerRef = useRef<HTMLDivElement>(null);
   const dragging = useRef(false);
@@ -39,7 +40,7 @@ export default function BeforeAfter({ before, after, alt }: BeforeAfterProps) {
   return (
     <div
       ref={containerRef}
-      className="relative overflow-hidden rounded-xl select-none cursor-col-resize aspect-video"
+      className={`relative overflow-hidden rounded-xl select-none cursor-col-resize ${className}`}
       onMouseMove={onMouseMove}
       onMouseDown={() => { dragging.current = true; }}
       onMouseUp={() => { dragging.current = false; }}
@@ -48,7 +49,7 @@ export default function BeforeAfter({ before, after, alt }: BeforeAfterProps) {
     >
       {/* After (base) */}
       <div className="absolute inset-0">
-        <Image src={after} alt={`${alt} - after`} fill className="object-cover" />
+        <Image src={after} alt={`${alt} - after`} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover object-center" />
       </div>
 
       {/* Before (clipped) */}
@@ -56,7 +57,7 @@ export default function BeforeAfter({ before, after, alt }: BeforeAfterProps) {
         className="absolute inset-0 overflow-hidden"
         style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
       >
-        <Image src={before} alt={`${alt} - before`} fill className="object-cover" />
+        <Image src={before} alt={`${alt} - before`} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover object-center" />
       </div>
 
       {/* Divider */}

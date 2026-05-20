@@ -29,11 +29,17 @@ export default function Hero() {
         style={{ y: yBg, scale: scaleBg }}
         className="absolute inset-0 -top-[15%] -bottom-[15%] origin-center"
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0D0D0D] via-[#1a1a1a] to-[#0D0D0D]" />
+        <Image
+          src="/Web Photos/Pressure washing Hero.JPG"
+          alt="Okanagan dock pressure washing"
+          fill
+          className="object-cover object-center"
+          priority
+        />
         {/* Cinematic bottom gradient */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0D] via-[#0D0D0D]/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0D] via-[#0D0D0D]/50 to-[#0D0D0D]/20" />
         {/* Subtle top vignette */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0D0D0D]/30 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0D0D0D]/40 via-transparent to-transparent" />
       </motion.div>
 
       {/* ── NOISE TEXTURE — grain overlay for premium feel ── */}
@@ -47,7 +53,7 @@ export default function Hero() {
       />
 
       {/* ── LOGO WATERMARK ── */}
-      <div className="absolute right-[-8%] top-1/2 -translate-y-1/2 pointer-events-none opacity-[0.035] z-[1] select-none">
+      <div className="absolute right-[-8%] top-1/2 -translate-y-1/2 pointer-events-none opacity-[0.08] z-[1] select-none">
         <Image src="/images/Logo with no text.png" alt="" width={560} height={560} className="w-[min(560px,65vw)]" aria-hidden />
       </div>
 
