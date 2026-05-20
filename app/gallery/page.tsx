@@ -57,6 +57,7 @@ export default function GalleryPage() {
                 after="/images/after-7.jpg"
                 alt="Dock restoration"
                 className="aspect-video"
+                afterZoom={1.12}
               />
             </FadeUp>
             <FadeUp delay={0.2}>
@@ -65,6 +66,7 @@ export default function GalleryPage() {
                 after="/images/gallery-after-2.jpg"
                 alt="Dock restoration"
                 className="aspect-video"
+                afterZoom={1.12}
               />
             </FadeUp>
           </div>

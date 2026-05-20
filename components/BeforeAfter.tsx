@@ -8,9 +8,10 @@ interface BeforeAfterProps {
   after: string;
   alt: string;
   className?: string;
+  afterZoom?: number;
 }
 
-export default function BeforeAfter({ before, after, alt, className = "" }: BeforeAfterProps) {
+export default function BeforeAfter({ before, after, alt, className = "", afterZoom = 1 }: BeforeAfterProps) {
   const [position, setPosition] = useState(50);
   const containerRef = useRef<HTMLDivElement>(null);
   const dragging = useRef(false);
@@ -48,7 +49,7 @@ export default function BeforeAfter({ before, after, alt, className = "" }: Befo
       onTouchMove={onTouchMove}
     >
       {/* After (base) */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0" style={{ transform: `scale(${afterZoom})` }}>
         <Image src={after} alt={`${alt} - after`} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover object-center" />
       </div>
 
