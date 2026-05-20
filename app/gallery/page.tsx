@@ -56,7 +56,6 @@ export default function GalleryPage() {
                 before="/images/before-7.jpg"
                 after="/images/after-7.jpg"
                 alt="Dock restoration"
-                afterZoom={1.1}
               />
             </FadeUp>
             <FadeUp delay={0.2}>
