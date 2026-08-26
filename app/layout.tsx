@@ -47,6 +47,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${nunito.variable} ${bebasNeue.variable}`}>
+      <head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18364833418"></script>
+<script dangerouslySetInnerHTML={{__html: `window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-18364833418');`}} />
+</head>
       <body className="min-h-full flex flex-col antialiased">
         <SmoothScroll>
           <Navbar />
